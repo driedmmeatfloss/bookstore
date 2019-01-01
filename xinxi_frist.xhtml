@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./../moban/xinxi.xhtml">
+
+            <ui:define name="top">
+                <ui:include src="top.xhtml" />
+            </ui:define>
+
+            <ui:define name="left">
+                <p style="font-size: 20px;text-align: center" >个人信息</p>
+                <ui:include src="Xinxi_left.xhtml"/>
+                <p>修改信息，请尽快联系管理员</p>
+            </ui:define>
+
+            <ui:define name="content">
+                <p style="font-size: 20px;text-align: center">交易记录</p>
+                <!--<ui:include src="boybook_center1.jsp"/>-->
+            </ui:define>
+
+            <ui:define name="right">
+                <p style="font-size: 20px;text-align: center">购物车</p>
+                <!--<ui:include src="../frist.jsp"/>-->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
