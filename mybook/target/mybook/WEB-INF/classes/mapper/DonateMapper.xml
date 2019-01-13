@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niit.mapper.DonateMapper">
+
+    <insert id="donate" parameterType="donate">
+        insert into donate (name, caid, publish, author, picurl, uid, status) values(#{name},#{caid},#{publish},#{author},#{picurl},#{uid},0)
+    </insert>
+
+    <select id="getCount" parameterType="int" resultType="int">
+        select count(*) from donate where uid = #{id}
+    </select>
+
+    <select id="queryDonate" parameterType="int" resultType="donate">
+        select a.*,b.* from donate a left join category b on a.caid = b.id  where uid = #{id}
+    </select>
+
+    <select id="getAllCount"  resultType="int">
+        select count(*) from donate
+    </select>
+
+    <select id="queryAllDonate"  resultType="donate">
+        select a.*,b.*,c.* from donate a left join category b on a.caid = b.id left join user c on a.uid = c.id
+    </select>
+
+    <update id="pass" parameterType="int">
+        update donate set status = 1 where id = #{id}
+    </update>
+
+
+    <update id="refuse" parameterType="int">
+        update donate set status = 2 where id = #{id}
+    </update>
+
+    <select id="query" parameterType="int" resultType="donate">
+        select * from donate where id = #{id}
+    </select>
+
+
+
+</mapper>
