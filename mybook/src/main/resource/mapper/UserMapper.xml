@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niit.mapper.UserMapper">
+    <sql id="user">id,username,password,age,realname,cardid,status</sql>
+
+
+    <insert id="addUser" parameterType="user">
+        insert into user(<include refid="user"></include>) values (#{id},#{username},
+        #{password},#{age},#{realname},#{cardid},0)
+    </insert>
+    <select id="getUserByUsername" parameterType="string" resultType="user">
+        select * from user where username = #{username}
+    </select>
+
+    <insert id="donate" parameterType="donate">
+        insert into donate (name, caid, publish, author, picurl, uid, status) values(#{name},#{caid},#{publish},#{author},#{picurl},#{uid},0)
+    </insert>
+
+
+    <update id="updateInfo" parameterType="user">
+        update user set age = #{age},realname = #{realname}, cardid = #{cardid} where id = #{id}
+    </update>
+
+    <update id="pwd" parameterType="user">
+        update user set password = #{password} where id = #{id}
+    </update>
+
+</mapper>
